@@ -44,7 +44,7 @@ variable "firewall" {
 }
 
 #............................................ VPC Peering ..............................................#
-/*
+
 variable "vpc_peering" {
     sensitive   = false
 }
@@ -53,4 +53,6 @@ variable "vpc_peering" {
 
 variable "route" {
     sensitive   = false
-}*/
+}
+
+*/
