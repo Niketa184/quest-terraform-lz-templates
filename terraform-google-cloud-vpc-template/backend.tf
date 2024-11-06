@@ -1,8 +1,8 @@
 #.................................... Terraform Backend ....................................#
 
 terraform {
-    backend "gcs" {
-    #bucket  = ""
-    #prefix  = "network"
-  }
+backend "gcs" {
+  bucket = "terraform-learning-bucket"
+  prefix = "tf/state"
+}
 }
