@@ -20,7 +20,7 @@ jobs:
         shell: bash
     
     steps:
-# checkout repository to github action runner
+    # checkout repository to github action runner
     - name: Checkout
       uses: actions/checkout@v3
 
@@ -30,12 +30,19 @@ jobs:
         workload_identity_provider: 'projects/624433382152/locations/global/workloadIdentityPools/github-demo-pool-niketa/providers/github'
         service_account: 'github-actions-workload-federa@niketa.iam.gserviceaccount.com'
 
+     # Terraform Init
     - name: Terraform Init
       run: terraform init
 
+     # Terraform Validate
+    - name: Terraform Validate
+      run: terraform validate
+
+    # Terraform Plan
     - name: Terraform Plan
       run: terraform plan -input=false
 
+   # Terraform Apply
     - name: Terraform Apply
       run: terraform apply -auto-approve -input=false
 
