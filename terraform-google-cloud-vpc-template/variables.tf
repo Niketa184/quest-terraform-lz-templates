@@ -1,5 +1,5 @@
 #........................................... Provider Block ............................................#
-
+/*
 variable "project_id" {
     #default     = "reference-host-prj"
 }
@@ -24,7 +24,7 @@ variable "billing_budget" {
 variable "apis" {
     sensitive   = false
 }
-
+*/
 #.............................................. VPC ....................................................#
 
 variable "vpc" {
@@ -44,7 +44,7 @@ variable "firewall" {
 }
 
 #............................................ VPC Peering ..............................................#
-
+/*
 variable "vpc_peering" {
     sensitive   = false
 }
@@ -53,4 +53,4 @@ variable "vpc_peering" {
 
 variable "route" {
     sensitive   = false
-}
+}*/
