@@ -8,7 +8,7 @@ module "vpc_subnets" {
   project_id                            = each.value.project_id
   network_name                          = each.key
   subnets                               = each.value.subnets
-  secondary_ranges                      = each.value.secondary_ranges
+  #secondary_ranges                      = each.value.secondary_ranges
   #purpose                               = each.value.purpose
   #role                                  = each.value.role
   depends_on                            = [ module.vpc ]
