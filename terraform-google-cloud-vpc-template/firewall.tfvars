@@ -3,7 +3,7 @@ firewall                         = {
   # .............. Network HUB Firewall Configuration ............. #
   "gcp-vpc-prd-hub-shr-1"       = {
     delete                       = false
-    project_id                   = "gcp-prj-inf-networkhub-prd-1"
+    project_id                   = "niketa"
     rules                        = [
       {
         name                     = "fw-hub-ingress-allow-22-3389-tcp-01"
@@ -118,7 +118,7 @@ firewall                         = {
   # ........... Network QA Spoke Firewall Configuration ........... #
   "gcp-vpc-npe-qa-shr-1"     = {
     delete                       = false
-    project_id                   = "gcp-prj-inf-networkspk-qa-1"
+    project_id                   = "niketa"
     rules                        = [
       {
         name                     = "fw-qa-ingress-allow-22-3389-tcp-01"
@@ -140,7 +140,7 @@ firewall                         = {
         log_config               = {
           metadata               = "INCLUDE_ALL_METADATA"
         }
-      },
+      }
       
     ]
   }
