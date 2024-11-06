@@ -4,7 +4,7 @@ module "vpc_firewall_rule" {
   for_each     = {
     for k, v in try(var.firewall,{}): k => v if v.delete != true
   }
-  source                                = "git::https://github.com/Niketa184/quest-terraform-lz-modules//terraform-google-cloud-firewall"
+  source                                = "git::https://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@github.com/Niketa184/quest-terraform-lz-modules//terraform-google-cloud-firewall"
   project_id                            = each.value.project_id 
   network_name                          = each.key
   rules                                 = each.value.rules
