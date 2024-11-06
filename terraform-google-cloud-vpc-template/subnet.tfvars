@@ -40,7 +40,7 @@ subnets = {
         subnet_flow_logs_filter_expr = true
       }
     ]
-    secondary_ranges = {}
+   # secondary_ranges = {}
   },
   # ............... End HUB VPC Subnets Configuration .................. #
 
@@ -62,7 +62,7 @@ subnets = {
         subnet_flow_logs_filter_expr = true
       }
     ]
-    secondary_ranges = {}
+  #  secondary_ranges = {}
   }
   # ............. End Untrust VPC Subnets Configuration ................ #
 }
