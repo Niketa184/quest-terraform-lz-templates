@@ -32,15 +32,22 @@ jobs:
 
      # Terraform Init
     - name: Terraform Init
-      run: terraform init
+      run: |
+        cd terraform-google-cloud-vpc-template
+        terraform init
 
      # Terraform Validate
     - name: Terraform Validate
-      run: terraform validate
+      run: |
+        cd terraform-google-cloud-vpc-template
+        terraform validate
 
     # Terraform Plan
     - name: Terraform Plan
-      run: terraform plan -input=false
+      run: |
+        cd terraform-google-cloud-vpc-template
+        terraform plan -input=false
+      
     - name: Wiz.io Security Scan
       env:
         WIZ_API_KEY: ${{ secrets.WIZ_API_KEY }}  # Store Wiz.io API Key as a secret
