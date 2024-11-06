@@ -41,6 +41,13 @@ jobs:
     # Terraform Plan
     - name: Terraform Plan
       run: terraform plan -input=false
+    - name: Wiz.io Security Scan
+      env:
+        WIZ_API_KEY: ${{ secrets.WIZ_API_KEY }}  # Store Wiz.io API Key as a secret
+      run: |
+        curl -sSL https://download.wiz.io/cli | sudo bash
+        wiz scan terraform -d . --format json > wiz_scan_report.json
+        cat wiz_scan_report.json  # Print the scan results to the log (optional)
 
    # Terraform Apply
     - name: Terraform Apply
