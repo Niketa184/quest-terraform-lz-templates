@@ -1,22 +1,3 @@
-#...................................... Projects Creation Output .................................#
-
-output "Project_Details" {
-  description = "Details of the projects"
-  value       = module.project
-}
-
-#......................................... Budget Quota ..........................................#
-
-output "Billing_Budget_Details" {
-    value = module.billing_budget
-}
-
-#.................................. Project APIs Enablement Output ...............................#
-
-output "Project_APIs_Details" {
-  value = module.apis
-  description = "Project APIs details"
-}
 
 #............................................ VPC Output .........................................#
 
@@ -40,7 +21,7 @@ output "VPC_Firewall_Rule_Details" {
 }
 
 #........................................ VPC Peering Output .....................................#
-
+/*
 output "VPC_Peering_1_2" {
   value = module.vpc_peering_1_2
   description = "VPC Peering 1-2"
@@ -57,3 +38,4 @@ output "Routes_details" {
   value = module.route
   description = "Compute Routes Details"
 }
+*/
