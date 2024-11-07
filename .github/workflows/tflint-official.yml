@@ -19,4 +19,6 @@ jobs:
        run: |
          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh| bash
      - name: Run tflint
-       run: tflint --var-file=vpc.tfvars --var-file=subnet.tfvars --var-file=firewall.tfvars
+       run: |
+        cd terraform-google-cloud-vpc-template
+        tflint --var-file=vpc.tfvars --var-file=subnet.tfvars --var-file=firewall.tfvars
