@@ -46,7 +46,7 @@ jobs:
     - name: Terraform Plan
       run: |
         cd terraform-google-cloud-vpc-template
-        terraform plan -input=false
+        terraform plan -var-file=vpc.tfvars -var-file=subnet.tfvars -var-file=firewall.tfvars
       
     - name: Wiz.io Security Scan
       env:
