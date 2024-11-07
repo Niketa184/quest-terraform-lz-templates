@@ -33,6 +33,19 @@ jobs:
 
     - name: Run TFlint
       run: tflint -f compact --recursive --force
+
+  tfsec-checks:
+    runs-on: ubuntu-latest
+    needs: tflint-checks
+
+    steps:
+    # Checkout Repository
+    - name: Check out git Repository
+      uses: actions/checkout@v2
+
+    # Tfsec - Security scanner for Terraform code 
+    - name: Run TFsec
+      uses: aquasecurity/tfsec-action@v1.0.0
       
 
       
