@@ -5,7 +5,7 @@ vpc                             = {
     delete                      = false
     description                 = "HUB Shared VPC used to share Network Component for Infra Shared Services"
     auto_create_subnetworks     = false
-    routing_mode                = "GLOBAL"
+    routing_mode                = "ABCD"
     project_id                  = "niketa"
     delete_routes               = true
   },
