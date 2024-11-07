@@ -1,7 +1,7 @@
 vpc                             = {
 
 # .............. Network HUB Project VPCs Configuration ............. #
-  "gcp-vpc-prd-hub-shr-1"       = {
+  "gcp-vpc-prd-hub-shr-1!"       = {
     delete                      = false
     description                 = "HUB Shared VPC used to share Network Component for Infra Shared Services"
     auto_create_subnetworks     = false
