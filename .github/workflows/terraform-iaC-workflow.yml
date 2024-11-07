@@ -49,6 +49,7 @@ jobs:
       - name: Terraform Validate
         run: |
          cd terraform-google-cloud-vpc-template
+         terraform init
          terraform validate
 
   plan: 
@@ -69,6 +70,7 @@ jobs:
       - name: Terraform Plan
         run: |
           cd terraform-google-cloud-vpc-template
+          terraform init -reconfigure
           terraform plan -var-file=vpc.tfvars -var-file=subnet.tfvars -var-file=firewall.tfvars
 
   apply: 
