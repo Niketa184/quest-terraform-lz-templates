@@ -47,6 +47,16 @@ jobs:
       run: |
         cd terraform-google-cloud-vpc-template
         terraform plan -var-file=vpc.tfvars -var-file=subnet.tfvars -var-file=firewall.tfvars
+
+    #  Terraform TFLint
+    - name: Install TFLint
+      run: |
+        curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | sudo bash
+
+    #  Run TFLint
+    - name: Run TFLint
+      run: |
+        tflint --config .tflint.hcl  # Optional: Use a custom TFLint configuration file
       
     - name: Wiz.io Security Scan
       env:
