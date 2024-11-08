@@ -73,6 +73,13 @@ jobs:
           terraform init -reconfigure
           terraform plan -var-file=vpc.tfvars -var-file=subnet.tfvars -var-file=firewall.tfvars
 
+  jobs:
+    tflint:
+    runs-on: ubuntu-latest
+      call-template:
+         uses: ./.github/workflows/tflint-official.yml
+         
+
   apply: 
      runs-on: ubuntu-latest
 
