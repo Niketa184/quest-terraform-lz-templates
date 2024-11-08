@@ -14,9 +14,11 @@ jobs:
        uses: hashicorp/setup-terraform@v2
        with:
          terraform_version: 'latest'
+         
      - name: Install tflint
        run: |
          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh| bash
+         
      - name: Run tflint
        run: |
         cd terraform-google-cloud-vpc-template
