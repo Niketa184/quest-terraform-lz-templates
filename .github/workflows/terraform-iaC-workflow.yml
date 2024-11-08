@@ -33,6 +33,7 @@ jobs:
 
   validate: 
      runs-on: ubuntu-latest
+     needs: init
 
      steps:
     # checkout repository to github action runner
@@ -54,6 +55,7 @@ jobs:
 
   plan: 
      runs-on: ubuntu-latest
+     needs: validate
 
      steps:
     # checkout repository to github action runner
@@ -76,6 +78,7 @@ jobs:
 
   tflint:
     runs-on: ubuntu-latest
+    needs: plan
 
     steps:
     # checkout repository to github action runner
@@ -93,6 +96,7 @@ jobs:
 
   apply: 
      runs-on: ubuntu-latest
+     needs: tflint
 
      steps:
     # checkout repository to github action runner
