@@ -1,0 +1,5 @@
+name: Wiz scanning
+
+jobs:
+  WIZ-SCAN:
+    runs-on: 
