@@ -54,18 +54,9 @@ jobs:
          terraform validate
 
   tflint:
-    runs-on: ubuntu-latest
     needs: validate
-
-    steps:
-    # checkout repository to github action runner
-    - name: Checkout
-      uses: actions/checkout@v3
-
-    - name: Terraform Lint
-      uses: ./.github/workflows/tflint-official.yml
-      with:
-          tf_version: '1.5.0'
+    uses: ./.github/workflows/tflint-official.yml
+      
 
   plan: 
      runs-on: ubuntu-latest
