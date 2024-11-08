@@ -53,9 +53,27 @@ jobs:
          terraform init
          terraform validate
 
+  tflint:
+    runs-on: ubuntu-latest
+    needs: validate
+
+    steps:
+    # checkout repository to github action runner
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - id: auth
+        uses: google-github-actions/auth@v2.0.0
+        with:
+          workload_identity_provider: 'projects/624433382152/locations/global/workloadIdentityPools/github-demo-pool-niketa/providers/github'
+          service_account: 'github-actions-workload-federa@niketa.iam.gserviceaccount.com'
+
+      - name: Terraform Lint
+        uses: ./.github/workflows/tflint-official.yml
+
   plan: 
      runs-on: ubuntu-latest
-     needs: validate
+     needs: tflint
 
      steps:
     # checkout repository to github action runner
@@ -75,28 +93,9 @@ jobs:
           terraform init -reconfigure
           terraform plan -var-file=vpc.tfvars -var-file=subnet.tfvars -var-file=firewall.tfvars
 
-
-  tflint:
-    runs-on: ubuntu-latest
-    needs: plan
-
-    steps:
-    # checkout repository to github action runner
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - id: auth
-        uses: google-github-actions/auth@v2.0.0
-        with:
-          workload_identity_provider: 'projects/624433382152/locations/global/workloadIdentityPools/github-demo-pool-niketa/providers/github'
-          service_account: 'github-actions-workload-federa@niketa.iam.gserviceaccount.com'
-
-      - name: Terraform Lint
-        uses: ./.github/workflows/tflint-official.yml
-
   apply: 
      runs-on: ubuntu-latest
-     needs: tflint
+     needs: plan
 
      steps:
     # checkout repository to github action runner
