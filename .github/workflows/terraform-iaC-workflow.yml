@@ -73,12 +73,23 @@ jobs:
           terraform init -reconfigure
           terraform plan -var-file=vpc.tfvars -var-file=subnet.tfvars -var-file=firewall.tfvars
 
-  jobs:
-    tflint:
+
+  tflint:
     runs-on: ubuntu-latest
-      call-template:
-         uses: ./.github/workflows/tflint-official.yml
-         
+
+    steps:
+    # checkout repository to github action runner
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - id: auth
+        uses: google-github-actions/auth@v2.0.0
+        with:
+          workload_identity_provider: 'projects/624433382152/locations/global/workloadIdentityPools/github-demo-pool-niketa/providers/github'
+          service_account: 'github-actions-workload-federa@niketa.iam.gserviceaccount.com'
+
+      - name: Terraform Lint
+        uses: ./.github/workflows/tflint-official.yml
 
   apply: 
      runs-on: ubuntu-latest
