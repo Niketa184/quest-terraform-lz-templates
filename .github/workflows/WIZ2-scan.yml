@@ -1,0 +1,42 @@
+name: Scan Terraform with Wiz
+
+on:
+  push:
+    branches: [""]
+
+  pull_request:
+    branches: [""]
+
+jobs:
+  scan:
+    name: Wiz Terraform Security Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Wiz CLI
+      - name: Install Wiz CLI
+        run: |
+          curl -sSL https://wiz.io/download/cli | bash
+          sudo mv wiz /usr/local/bin
+
+      # Authenticate Wiz CLI (using GitHub secrets)
+      - name: Authenticate Wiz CLI
+        run: |
+          wiz auth login --token ${{ secrets.WIZ_API_TOKEN }}
+
+      # Run Wiz scan on Terraform code
+      - name: Scan Terraform with Wiz
+        run: |
+          cd terraform-google-cloud-vpc-template
+          wiz scan terraform --target .
+
+      # (Optional) Upload results or artifacts
+      - name: Upload Wiz scan results
+        uses: actions/upload-artifact@v3
+        with:
+          name: wiz-scan-results
+          path: ./wiz-results.json
