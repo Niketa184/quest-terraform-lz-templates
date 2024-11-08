@@ -64,6 +64,8 @@ jobs:
 
     - name: Terraform Lint
       uses: ./.github/workflows/tflint-official.yml
+      with:
+          tf_version: '1.5.0'
 
   plan: 
      runs-on: ubuntu-latest
