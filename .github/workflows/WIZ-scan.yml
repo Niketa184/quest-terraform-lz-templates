@@ -7,7 +7,13 @@ jobs:
     runs-on: ubuntu-latest
 
   steps:
-  - uses:
+  - uses: actions/checkout@v4
+  - name: Download WIZ CLI
+    run: curl --silent -o wizcli https://wizcli.app.wiz.io/latest/wizcli && chmod +x wizcli
+
+  - name: Wiz IAC Scan
+    
+    
     
 
 
