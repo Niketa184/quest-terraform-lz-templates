@@ -1,4 +1,4 @@
-name: Create resource using terraform
+name: tflint-tfsec-public
 
 on: 
   push:
