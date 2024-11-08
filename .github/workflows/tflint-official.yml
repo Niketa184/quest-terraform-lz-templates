@@ -1,8 +1,12 @@
 name: Terraform Lint
 on:
- push:
-   branches: []
- pull_request:
+  workflow_call:
+    inputs:
+      tf_version:
+        required: false
+        type: string
+        default: '1.5.0'
+        
 jobs:
  lint:
    name: Run Terraform Lint
