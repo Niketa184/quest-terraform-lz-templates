@@ -1,4 +1,5 @@
 name: Wiz scanning
+
 on:
   workflow_dispatch:
 
