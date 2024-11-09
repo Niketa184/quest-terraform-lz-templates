@@ -28,18 +28,21 @@ variable "apis" {
 #.............................................. VPC ....................................................#
 
 variable "vpc" {
+    type = any
     sensitive   = false
 }
 
 #............................................ VPC Subnet ...............................................#
 
 variable "subnets" {
+    type = any
     sensitive = false
 }
 
 #........................................... VPC Firewall ..............................................#
 
 variable "firewall" {
+    type = any
     sensitive   = false
 }
 
