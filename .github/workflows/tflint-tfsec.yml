@@ -2,7 +2,7 @@ name: tflint-tfsec-public
 
 on: 
   push:
-    branches:
+    branches: [""]
   workflow_dispatch:
 
 jobs:
