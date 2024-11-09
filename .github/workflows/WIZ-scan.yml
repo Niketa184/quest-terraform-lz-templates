@@ -12,5 +12,8 @@ jobs:
     run: curl --silent -o wizcli https://wizcli.app.wiz.io/latest/wizcli && chmod +x wizcli
 
   - name: Wiz IAC Scan
+    run: |
+      ./wizcli auth --id ${{secrets.WIZ_CLIENT_ID}} --secret ${{secrets.WIZ_CLIENT_SECRET}}
+      ./wizcli iac scan --path . -p "$WIZ_IAC_POLICY" --tag github_action_run_id=${{ github.run_id }} -o results.sarif,sarif,false
     
     
