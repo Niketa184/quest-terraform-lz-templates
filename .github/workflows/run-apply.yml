@@ -1,0 +1,19 @@
+name: Terraform Manual Apply
+
+on:
+  workflow_run:
+    workflows: ["Terraform Apply Workflow"]  # Reference the name of the first workflow
+    types:
+      - completed
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Terraform Apply
+       - name: Terraform Apply
+         run: |
+            cd terraform-google-cloud-vpc-template
+            terraform init -reconfigure
+            terraform apply -auto-approve -input=false  -var-file=vpc.tfvars -var-file=subnet.tfvars -var-file=firewall.tfvars
