@@ -72,4 +72,5 @@ jobs:
       - name: Terraform Apply
         run: |
           cd terraform-google-cloud-vpc-template
+          terraform init -reconfigure
           terraform apply -auto-approve -input=false
