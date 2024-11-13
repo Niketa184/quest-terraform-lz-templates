@@ -3,7 +3,7 @@ subnets = {
 
   # ................... HUB VPC Subnets Configuration .................. #
   "gcp-vpc-prd-hub-shr-1" = {
-    delete                           = false
+    delete                           = true
     project_id                       = "niketa"
     subnets                          = [
       {
@@ -47,7 +47,7 @@ subnets = {
 
   # ................. OUT (UNTRUST) VPC Subnets Configuration ................ #
   "gcp-vpc-prd-out-fw-1" = {
-    delete                           = false
+    delete                           = true
     project_id                       = "niketa"
     subnets                          = [
       {
