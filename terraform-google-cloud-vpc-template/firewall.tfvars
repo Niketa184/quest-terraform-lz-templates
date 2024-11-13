@@ -2,7 +2,7 @@ firewall                         = {
 
   # .............. Network HUB Firewall Configuration ............. #
   "gcp-vpc-prd-hub-shr-1"       = {
-    delete                       = false
+    delete                       = true
     project_id                   = "niketa"
     rules                        = [
       {
@@ -117,7 +117,7 @@ firewall                         = {
  
   # ........... Network QA Spoke Firewall Configuration ........... #
   "gcp-vpc-npe-qa-shr-1"     = {
-    delete                       = false
+    delete                       = true
     project_id                   = "niketa"
     rules                        = [
       {
