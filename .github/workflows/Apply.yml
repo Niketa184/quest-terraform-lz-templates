@@ -70,4 +70,6 @@ jobs:
 
       # Terraform Apply
       - name: Terraform Apply
-        run: terraform apply -auto-approve -input=false
+        run: |
+          cd terraform-google-cloud-vpc-template
+          terraform apply -auto-approve -input=false
