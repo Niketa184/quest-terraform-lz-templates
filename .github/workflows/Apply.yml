@@ -73,4 +73,4 @@ jobs:
         run: |
           cd terraform-google-cloud-vpc-template
           terraform init -reconfigure
-          terraform apply -auto-approve -input=false
+          terraform apply -auto-approve -input=false  -var-file=vpc.tfvars -var-file=subnet.tfvars -var-file=firewall.tfvars
