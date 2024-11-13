@@ -55,7 +55,7 @@ jobs:
         run: |
           cd terraform-google-cloud-vpc-template
           terraform init -reconfigure
-          terraform plan -var-file=vpc.tfvars -var-file=subnet.tfvars -var-file=firewall.tfvars
+          terraform plan -var-file=vpc.tfvars -var-file=subnet.tfvars -var-file=firewall.tfvars -lock=false
 
   apply: 
      runs-on: ubuntu-latest
