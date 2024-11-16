@@ -1,13 +1,8 @@
 name: Terraform Apply Workflow
 
-on:
-  pull_request:
-    branches:
-      - main   # or the branch you want to target
-    types:
-      - opened    # Trigger when PR is opened
-      - synchronize  # Trigger when PR is updated
-      - reopened   # Trigger when PR is reopened
+on: 
+  push:
+    branches: [""]
   workflow_dispatch:
 
 permissions:
@@ -73,6 +68,7 @@ jobs:
         with:
           workload_identity_provider: 'projects/624433382152/locations/global/workloadIdentityPools/github-demo-pool-niketa/providers/github'
           service_account: 'github-actions-workload-federa@niketa.iam.gserviceaccount.com'
+          
       # Terraform Apply
       - name: Terraform Apply
         run: |
