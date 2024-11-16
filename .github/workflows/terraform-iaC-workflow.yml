@@ -1,10 +1,14 @@
 name: Terraform Workflow
 
 on:
-  push: 
-    branches: [ "feature" ]
-  workflow_dispatch:
   pull_request:
+    branches:
+      - main   # or the branch you want to target
+    types:
+      - opened    # Trigger when PR is opened
+      - synchronize  # Trigger when PR is updated
+      - reopened   # Trigger when PR is reopened
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -79,23 +83,3 @@ jobs:
           cd terraform-google-cloud-vpc-template
           terraform init -reconfigure
           terraform plan -var-file=vpc.tfvars -var-file=subnet.tfvars -var-file=firewall.tfvars
-
-  apply: 
-     runs-on: ubuntu-latest
-     needs: plan
-
-     steps:
-    # checkout repository to github action runner
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - id: auth
-        uses: google-github-actions/auth@v2.0.0
-        with:
-          workload_identity_provider: 'projects/624433382152/locations/global/workloadIdentityPools/github-demo-pool-niketa/providers/github'
-          service_account: 'github-actions-workload-federa@niketa.iam.gserviceaccount.com'
-
-
-      # Terraform Apply
-      - name: Terraform Apply
-        run: terraform apply -auto-approve -input=false
