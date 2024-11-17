@@ -1,6 +1,7 @@
 firewall                         = {
 
   # .............. Network HUB Firewall Configuration ............. #
+#comment added
   "gcp-vpc-prd-hub-shr-1"       = {
     delete                       = false
     project_id                   = "niketa"
