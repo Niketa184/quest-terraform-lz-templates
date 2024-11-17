@@ -59,7 +59,7 @@ jobs:
 
   tflint:
     needs: validate
-    uses: ./.github/workflows/tflint-official.yml
+    uses: ./.github/workflows/tflint.yml
       
 
   plan: 
