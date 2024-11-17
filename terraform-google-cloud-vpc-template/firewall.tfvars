@@ -1,7 +1,7 @@
 firewall                         = {
 
   # .............. Network HUB Firewall Configuration ............. #
-  "gcp-vpc-prd-hub-shr-1-testflow"       = {
+  "gcp-vpc-prd-hub-shr-1"       = {
     delete                       = false
     project_id                   = "niketa"
     rules                        = [
